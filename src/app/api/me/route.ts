@@ -30,7 +30,6 @@ export async function GET(req: NextRequest) {
     });
 
     if (!response.ok) {
-      console.log('사용자 정보 조회 실패:', response.status);
       return NextResponse.json({ message: '사용자 정보를 가져올 수 없습니다.' }, { status: response.status });
     }
 

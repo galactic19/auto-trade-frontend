@@ -1,9 +1,11 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 
 const Header = () => {
+  const router = useRouter();
   const { user, isAuthenticated, logout } = useAuth();
 
   const handleLogout = async () => {
@@ -123,9 +125,7 @@ const Header = () => {
 
                 {/* 지금 시작 버튼 */}
                 <button 
-                  onClick={() => {
-                    window.location.href = '/login';
-                  }}
+                  onClick={() => router.push('/login')}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                 >
                   지금 시작

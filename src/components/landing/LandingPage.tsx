@@ -3,7 +3,7 @@ import React from 'react';
 import { HeroSection } from './HeroSection';
 import { FeaturesSection } from './FeaturesSection';
 import { DemoSection } from './DemoSection';
-import { StockDashboard } from './StockDashboard';
+import { TradingViewChart } from './TradingViewChart';
 
 export const LandingPage: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ export const LandingPage: React.FC = () => {
         <DemoSection />
       </div>
       
-      {/* Stock Dashboard Section */}
+      {/* TradingView Chart Section */}
       <div className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -37,7 +37,7 @@ export const LandingPage: React.FC = () => {
             </p>
           </div>
           
-          <StockDashboard />
+          <TradingViewChart />
           
           {/* Additional Features */}
           <div className="mt-16 text-center">

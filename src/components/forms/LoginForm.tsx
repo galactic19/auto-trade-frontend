@@ -1,10 +1,11 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {useRouter} from 'next/navigation';
 import {useAuth} from '@/contexts/AuthContext';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
+import { toast } from 'sonner';
 
 interface LoginFormData {
   username: string;
@@ -28,6 +29,22 @@ const LoginForm = () => {
 
   const [errors, setErrors] = useState<LoginFormErrors>({});
   const [showPassword, setShowPassword] = useState(false);
+
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  const focusAndSelect = (el?: HTMLInputElement | null) => {
+    if (!el) return;
+    el.focus();
+    const len = el.value.length;
+    requestAnimationFrame(() => {
+      try {
+        el.setSelectionRange(0, len);
+      } catch {
+        // 환경에 따라 setSelectionRange 미지원일 수 있음
+      }
+    });
+  };
 
   const validateForm = (): boolean => {
     const newErrors: LoginFormErrors = {};
@@ -67,23 +84,35 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForm()) {
+    const isValid = validateForm();
+    if (!isValid) {
+      toast.error('아이디 및 비번을 확인하세요.');
+      // 어떤 필드가 비었는지 기준으로 포커스 이동
+      if (!formData.username.trim()) {
+        focusAndSelect(usernameRef.current);
+      } else if (!formData.password) {
+        focusAndSelect(passwordRef.current);
+      } else {
+        focusAndSelect(usernameRef.current);
+      }
       return;
     }
 
     setErrors({});
 
     try {
-      await login(formData.username, formData.password);
+      await login(formData.username.trim(), formData.password);
       // 로그인 성공시에만 메인 페이지로 리다이렉트
       router.replace('/'); // push 대신 replace 사용
     } catch (error) {
       console.error('로그인 실패:', error);
-      // 로그인 실패시 페이지 이동하지 않고 에러 메시지만 표시
       const errorMessage = error instanceof Error ? error.message : '로그인에 실패했습니다. 사용자명과 비밀번호를 확인해주세요.';
       setErrors({
         general: errorMessage,
       });
+      // shadcn(sonner) 토스트 및 포커스 이동
+      toast.error('아이디 및 비번을 확인하세요.');
+      focusAndSelect(usernameRef.current);
     }
   };
 
@@ -103,6 +132,8 @@ const LoginForm = () => {
       setErrors({
         general: errorMessage,
       });
+      toast.error('아이디 및 비번을 확인하세요.');
+      focusAndSelect(usernameRef.current);
     }
   };
 
@@ -124,6 +155,7 @@ const LoginForm = () => {
 
         {/* 사용자명 입력 */}
         <Input
+          ref={usernameRef}
           label="사용자명"
           name="username"
           type="text"
@@ -144,6 +176,7 @@ const LoginForm = () => {
 
         {/* 비밀번호 입력 */}
         <Input
+          ref={passwordRef}
           label="비밀번호"
           name="password"
           type={showPassword ? 'text' : 'password'}
