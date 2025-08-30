@@ -4,47 +4,101 @@ import { StatsDisplay } from './StatsDisplay';
 
 export const HeroSection: React.FC = () => {
   return (
-    <div className="relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32">
-          <div className="pt-16 mx-auto max-w-7xl px-4 sm:pt-24 sm:px-6 lg:px-8">
-            <div className="text-center lg:text-left">
-              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block">AI 기반</span>
-                <span className="block text-blue-600">자동매매 시스템</span>
-              </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                전문적인 알고리즘과 머신러닝 기술로 스마트하고 안전한 투자를 시작하세요. 
-                24시간 시장을 모니터링하여 최적의 투자 기회를 놓치지 않습니다.
-              </p>
-              
-              {/* CTA Buttons */}
-              <div className="mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
-                <div className="rounded-md shadow">
-                  <a 
-                    href="#features" 
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition-colors"
-                  >
-                    서비스 알아보기
-                  </a>
-                </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <button 
-                    onClick={() => {
-                      const loginForm = document.getElementById('login-section');
-                      loginForm?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-800 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition-colors"
-                  >
-                    로그인하고 시작하기
-                  </button>
-                </div>
-              </div>
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 overflow-hidden pt-16">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        {/* Animated gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse" />
+        
+        {/* Abstract shapes */}
+        <div className="absolute top-20 right-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" style={{animationDelay: '2s'}} />
+      </div>
 
-              {/* Stats */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
+          {/* Left Content */}
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+              <span className="block">Look first</span>
+              <span className="block text-white/90">/ Then leap.</span>
+            </h1>
+            
+            <p className="mt-8 text-xl md:text-2xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              최고의 트레이딩을 위해서는 연구와 노력이 필요합니다.
+            </p>
+            
+            {/* CTA Button */}
+            <div className="mt-12">
+              <button 
+                onClick={() => {
+                  const loginForm = document.getElementById('login-section');
+                  loginForm?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold text-lg rounded-full hover:bg-white/90 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              >
+                무료로 시작하기
+              </button>
+            </div>
+
+            {/* Additional text */}
+            <p className="mt-6 text-white/60 text-sm">
+              영원히 30, 신용카드 필요 없음
+            </p>
+
+            {/* Stats Display */}
+            <div className="mt-16">
               <StatsDisplay />
             </div>
           </div>
+
+          {/* Right Content - Figure */}
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="relative">
+              {/* Main figure representation */}
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+                {/* Circular platform */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-80 h-12 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full blur-xl" />
+                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-8 bg-gradient-to-r from-purple-400/40 to-blue-400/40 rounded-full blur-lg" />
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-48 h-4 bg-gradient-to-r from-purple-300/50 to-blue-300/50 rounded-full" />
+                
+                {/* Figure silhouette */}
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-20 h-40 bg-gradient-to-b from-white/20 to-white/10 rounded-t-full backdrop-blur-sm animate-float" />
+                
+                {/* Floating elements */}
+                <div className="absolute top-10 left-10 w-4 h-4 bg-blue-400/60 rounded-full animate-bounce" style={{animationDelay: '0.5s'}} />
+                <div className="absolute top-20 right-16 w-3 h-3 bg-purple-400/60 rounded-full animate-bounce" style={{animationDelay: '1s'}} />
+                <div className="absolute top-32 left-20 w-2 h-2 bg-cyan-400/60 rounded-full animate-bounce" style={{animationDelay: '1.5s'}} />
+                <div className="absolute top-16 right-8 w-5 h-5 bg-pink-400/40 rounded-full animate-bounce" style={{animationDelay: '2s'}} />
+                
+                {/* Chart-like elements */}
+                <div className="absolute top-24 right-20 w-16 h-1 bg-gradient-to-r from-green-400/60 to-transparent rounded-full" />
+                <div className="absolute top-28 right-18 w-20 h-1 bg-gradient-to-r from-blue-400/60 to-transparent rounded-full" />
+                <div className="absolute top-32 right-16 w-12 h-1 bg-gradient-to-r from-purple-400/60 to-transparent rounded-full" />
+              </div>
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 via-purple-500/10 to-transparent rounded-full blur-2xl" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom right corner element */}
+      <div className="absolute bottom-8 right-8 bg-white/10 backdrop-blur-sm rounded-2xl p-4 flex items-center space-x-3">
+        <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
+          <span className="text-white font-bold text-sm">킹</span>
+        </div>
+        <div>
+          <div className="text-white font-semibold text-sm">스콧 "킹드" 포티트</div>
+          <div className="text-white/60 text-xs">예상 박살 우주비행사</div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce" />
         </div>
       </div>
     </div>

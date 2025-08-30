@@ -14,13 +14,13 @@ export const StatsDisplay: React.FC = () => {
   ];
 
   return (
-    <div className="mt-12 grid grid-cols-3 gap-8 lg:mt-16">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
       {stats.map((stat, index) => (
-        <div key={index} className="text-center">
-          <div className="text-3xl font-extrabold text-blue-600">
+        <div key={index} className="text-center group">
+          <div className="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
             {stat.value}
           </div>
-          <div className="text-sm font-medium text-gray-500">
+          <div className="text-sm font-medium text-white/60 mt-2">
             {stat.label}
           </div>
         </div>

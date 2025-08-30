@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 메인 푸터 콘텐츠 */}
         <div className="py-12">
@@ -12,7 +12,7 @@ const Footer = () => {
             {/* 회사 정보 */}
             <div className="col-span-1 md:col-span-2 lg:col-span-1">
               <div className="flex items-center mb-4">
-                <h3 className="text-xl font-bold text-emerald-400">AutoTrade Pro</h3>
+                <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">TradingView</h3>
               </div>
               <p className="text-gray-400 mb-4">
                 AI 기반 자동매매 시스템으로 스마트하고 안전한 투자를 제공합니다.
@@ -41,27 +41,27 @@ const Footer = () => {
               <h4 className="text-lg font-semibold text-white mb-4">서비스</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     자동매매 전략
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     포트폴리오 관리
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     리스크 분석
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     백테스팅
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     API 연동
                   </a>
                 </li>
@@ -73,27 +73,27 @@ const Footer = () => {
               <h4 className="text-lg font-semibold text-white mb-4">지원</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     도움말 센터
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     API 문서
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     커뮤니티
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     연락처
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     상태 페이지
                   </a>
                 </li>
@@ -105,27 +105,27 @@ const Footer = () => {
               <h4 className="text-lg font-semibold text-white mb-4">회사</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     회사 소개
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     투자 정보
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     채용 정보
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     보도자료
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     파트너십
                   </a>
                 </li>
@@ -135,7 +135,7 @@ const Footer = () => {
         </div>
 
         {/* 구분선 */}
-        <div className="border-t border-slate-700"></div>
+        <div className="border-t border-white/10"></div>
 
         {/* 하단 정보 */}
         <div className="py-8">
@@ -143,13 +143,13 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-8 text-sm text-gray-400">
               <p>&copy; 2024 AutoTrade Pro. All rights reserved.</p>
               <div className="flex space-x-6">
-                <a href="#" className="hover:text-emerald-400 transition-colors">
+                <a href="#" className="hover:text-blue-400 transition-colors">
                   이용약관
                 </a>
-                <a href="#" className="hover:text-emerald-400 transition-colors">
+                <a href="#" className="hover:text-blue-400 transition-colors">
                   개인정보처리방침
                 </a>
-                <a href="#" className="hover:text-emerald-400 transition-colors">
+                <a href="#" className="hover:text-blue-400 transition-colors">
                   쿠키 정책
                 </a>
               </div>
@@ -157,7 +157,7 @@ const Footer = () => {
 
             {/* 위험 고지 */}
             <div className="mt-4 md:mt-0">
-              <div className="bg-slate-800 px-4 py-2 rounded-lg">
+              <div className="bg-white/5 px-4 py-2 rounded-lg border border-white/10">
                 <p className="text-xs text-gray-400">
                   <span className="text-yellow-400 font-semibold">⚠️ 투자 위험 고지:</span>
                   모든 투자에는 원금 손실 위험이 있습니다
@@ -168,12 +168,12 @@ const Footer = () => {
         </div>
 
         {/* 라이선스 및 규제 정보 */}
-        <div className="border-t border-slate-700 py-4">
+        <div className="border-t border-white/10 py-4">
           <div className="text-center">
             <p className="text-xs text-gray-500">
               금융투자업 신고번호: 제2024-001호 | 대표자: AutoTrade | 
               사업자등록번호: 123-45-67890 | 
-              <span className="text-emerald-400">고객지원: 1588-0000</span>
+              <span className="text-blue-400">고객지원: 1588-0000</span>
             </p>
           </div>
         </div>
