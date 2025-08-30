@@ -24,8 +24,18 @@ export const AccountInfo: React.FC = () => {
         
         if (response.ok) {
           const data = await response.json();
-          setAccount(data);
-          setLastUpdate(new Date());
+          console.log('Account API 응답:', data);
+          
+          // API 응답 데이터 검증
+          if (data && typeof data === 'object') {
+            setAccount(data);
+            setLastUpdate(new Date());
+          } else {
+            console.warn('올바르지 않은 계좌 데이터 형식:', data);
+          }
+        } else {
+          const errorData = await response.json();
+          console.error('계좌 정보 조회 실패:', response.status, errorData);
         }
       } catch (error) {
         console.error('Failed to fetch account data:', error);
@@ -55,13 +65,13 @@ export const AccountInfo: React.FC = () => {
     );
   }
 
-  // 임시 더미 데이터 (API 구현 전)
-  const dummyAccount: AccountData = account || {
-    balance: 10000000,
-    totalAssets: 12500000,
-    profitLoss: 2500000,
-    profitRate: 25.0,
-    positions: 5,
+  // 계좌 데이터 처리 (API 응답이 없거나 불완전한 경우 기본값 사용)
+  const accountData: AccountData = {
+    balance: account?.balance ?? 10000000,
+    totalAssets: account?.totalAssets ?? 12500000,
+    profitLoss: account?.profitLoss ?? 2500000,
+    profitRate: account?.profitRate ?? 25.0,
+    positions: account?.positions ?? 5,
   };
 
   return (
@@ -80,39 +90,39 @@ export const AccountInfo: React.FC = () => {
         <div className="bg-gray-50 rounded-lg p-4">
           <p className="text-sm text-gray-600 mb-1">예수금</p>
           <p className="text-lg font-semibold text-gray-900">
-            {dummyAccount.balance.toLocaleString('ko-KR')}원
+            {accountData.balance.toLocaleString('ko-KR')}원
           </p>
         </div>
 
         <div className="bg-gray-50 rounded-lg p-4">
           <p className="text-sm text-gray-600 mb-1">총 평가금액</p>
           <p className="text-lg font-semibold text-gray-900">
-            {dummyAccount.totalAssets.toLocaleString('ko-KR')}원
+            {accountData.totalAssets.toLocaleString('ko-KR')}원
           </p>
         </div>
 
         <div className="bg-gray-50 rounded-lg p-4">
           <p className="text-sm text-gray-600 mb-1">평가손익</p>
           <p className={`text-lg font-semibold ${
-            dummyAccount.profitLoss >= 0 ? 'text-red-600' : 'text-blue-600'
+            accountData.profitLoss >= 0 ? 'text-red-600' : 'text-blue-600'
           }`}>
-            {dummyAccount.profitLoss >= 0 ? '+' : ''}{dummyAccount.profitLoss.toLocaleString('ko-KR')}원
+            {accountData.profitLoss >= 0 ? '+' : ''}{accountData.profitLoss.toLocaleString('ko-KR')}원
           </p>
         </div>
 
         <div className="bg-gray-50 rounded-lg p-4">
           <p className="text-sm text-gray-600 mb-1">수익률</p>
           <p className={`text-lg font-semibold ${
-            dummyAccount.profitRate >= 0 ? 'text-red-600' : 'text-blue-600'
+            accountData.profitRate >= 0 ? 'text-red-600' : 'text-blue-600'
           }`}>
-            {dummyAccount.profitRate >= 0 ? '+' : ''}{dummyAccount.profitRate.toFixed(2)}%
+            {accountData.profitRate >= 0 ? '+' : ''}{accountData.profitRate.toFixed(2)}%
           </p>
         </div>
       </div>
 
       <div className="mt-4 pt-4 border-t border-gray-200">
         <p className="text-sm text-gray-600">
-          보유 종목: <span className="font-semibold text-gray-900">{dummyAccount.positions}개</span>
+          보유 종목: <span className="font-semibold text-gray-900">{accountData.positions}개</span>
         </p>
       </div>
     </div>

@@ -62,7 +62,16 @@ export async function POST(req: Request) {
     maxAge: 60 * 60 * 24 * 14, // 14일
   });
 
-  // Access token을 응답 헤더로 전달 (클라이언트에서 메모리에 저장용)
+  // Access token을 쿠키로도 저장 (서버사이드 API 호출용)
+  res.cookies.set('x-access-token', accessToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    path: '/',
+    maxAge: 60 * 60 * 15, // 15분 (access token은 짧게)
+  });
+
+  // Access token을 응답 헤더로도 전달 (클라이언트에서 메모리에 저장용)
   res.headers.set('x-access-token', accessToken);
 
   return res;

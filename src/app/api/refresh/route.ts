@@ -41,11 +41,22 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: '토큰 갱신 오류' }, { status: 502 });
     }
 
-    // 새로운 access token 반환
-    return NextResponse.json({ 
+    // 응답 생성
+    const res = NextResponse.json({ 
       access: data.access,
       message: '토큰 갱신 성공' 
     });
+
+    // 새로운 access token을 쿠키로도 저장
+    res.cookies.set('x-access-token', data.access, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 60 * 60 * 15, // 15분
+    });
+
+    return res;
 
   } catch (error) {
     console.error('토큰 갱신 중 오류:', error);
