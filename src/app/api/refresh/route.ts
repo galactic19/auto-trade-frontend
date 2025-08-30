@@ -27,7 +27,6 @@ export async function POST(req: NextRequest) {
     });
 
     if (!response.ok) {
-      console.log('토큰 갱신 실패');
       
       // refresh token이 만료된 경우 쿠키 삭제
       const res = NextResponse.json({ message: '토큰 갱신 실패' }, { status: 401 });

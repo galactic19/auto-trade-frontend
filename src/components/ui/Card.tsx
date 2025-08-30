@@ -1,9 +1,5 @@
 import React from 'react';
 
-export {default as LoginButton} from './LoginButton';
-export {default as Input} from './Input';
-export {default as Button} from './Button';
-
 interface CardProps {
   children: React.ReactNode;
   className?: string;
