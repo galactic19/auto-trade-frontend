@@ -124,8 +124,7 @@ const Header = () => {
                 {/* 지금 시작 버튼 */}
                 <button 
                   onClick={() => {
-                    const loginSection = document.getElementById('login-section');
-                    loginSection?.scrollIntoView({ behavior: 'smooth' });
+                    window.location.href = '/login';
                   }}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                 >

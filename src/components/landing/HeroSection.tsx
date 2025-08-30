@@ -1,8 +1,15 @@
 'use client';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { StatsDisplay } from './StatsDisplay';
 
 export const HeroSection: React.FC = () => {
+  const router = useRouter();
+
+  const handleStartClick = () => {
+    router.push('/login');
+  };
+
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 overflow-hidden pt-16">
       {/* Background Elements */}
@@ -31,13 +38,10 @@ export const HeroSection: React.FC = () => {
             {/* CTA Button */}
             <div className="mt-12">
               <button 
-                onClick={() => {
-                  const loginForm = document.getElementById('login-section');
-                  loginForm?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={handleStartClick}
                 className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold text-lg rounded-full hover:bg-white/90 transition-all duration-300 transform hover:scale-105 shadow-2xl"
               >
-                무료로 시작하기
+                지금 시작하기
               </button>
             </div>
 
@@ -90,7 +94,7 @@ export const HeroSection: React.FC = () => {
           <span className="text-white font-bold text-sm">킹</span>
         </div>
         <div>
-          <div className="text-white font-semibold text-sm">스콧 "킹드" 포티트</div>
+          <div className="text-white font-semibold text-sm">스콧 &ldquo;킹드&rdquo; 포티트</div>
           <div className="text-white/60 text-xs">예상 박살 우주비행사</div>
         </div>
       </div>

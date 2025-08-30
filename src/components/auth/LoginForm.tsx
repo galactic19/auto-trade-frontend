@@ -32,7 +32,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
         const data = await response.json();
         setError(data.error || '로그인에 실패했습니다.');
       }
-    } catch (err) {
+    } catch {
       setError('서버 연결에 실패했습니다.');
     } finally {
       setIsLoading(false);
