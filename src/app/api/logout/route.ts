@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
 
   // 쿠키 삭제
   res.cookies.delete('refresh_token');
+  res.cookies.delete('x-access-token');
 
   // refresh token이 있다면 백엔드에서 blacklist 처리
   if (refreshToken) {
